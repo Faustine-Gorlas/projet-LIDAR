@@ -10,7 +10,9 @@ def load_point_cloud(file_path):
 
 # 2. Réduction de la densité du nuage de points / 点云下采样
 def downsample_point_cloud(pcd, voxel_size=0.05):
-    return pcd.voxel_down_sample(voxel_size=voxel_size)
+    downsampled_pcd = pcd.voxel_down_sample(voxel_size=voxel_size)
+    print(f"Réduire l'échantillonnage du nuage de points à {len(downsampled_pcd.points)} points.")
+    return downsampled_pcd
 
 # 3. Projection du nuage de points en carte de profondeur 2D / 投影点云到 2D 深度图
 def project_to_depth_map(pcd, resolution=512):
